@@ -54,7 +54,7 @@ bool sandbox_integrity_compromised(){
 
 bool jailbreak_file_check(){
     struct stat s;
-    if (!stat("/Applications/Facebook.app", &s)) {
+    if (!stat("/Applications/Cydia.app", &s)) {
         return true;
     }
     else if (!stat("/Library/MobileSubstrate/MobileSubstrate.dylib", &s)) {
@@ -91,7 +91,20 @@ bool jailbreak_file_check(){
         return true;
     }
     
-    return false;
+    let appName = "instagram"
+    let appScheme = "\(appName)://"
+    let appUrl = URL(string: appScheme)
+
+    if UIApplication.shared.canOpenURL(appUrl! as URL)
+    {
+        UIApplication.shared.open(appUrl!);
+        print("APP IS INSTALLED");
+        return true;
+
+    } else {
+        print("App not installed");
+        return false;
+    }
 }
 
 bool symbolic_linking_check(){
