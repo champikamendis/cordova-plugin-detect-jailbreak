@@ -95,15 +95,13 @@ bool jailbreak_file_check(){
     NSString *appScheme = [NSString stringWithFormat:@"%@://", appName];
     NSURL *appUrl = [NSURL URLWithString:appScheme];
 
-    if UIApplication.shared.canOpenURL(appUrl! as URL)
-    {
-        UIApplication.shared.open(appUrl!);
-        print("APP IS INSTALLED");
-        return true;
-
+    if ([[UIApplication sharedApplication] canOpenURL:appUrl]) {
+        [[UIApplication sharedApplication] openURL:appUrl];
+        NSLog(@"APP IS INSTALLED");
+        return YES;
     } else {
-        print("App not installed");
-        return false;
+        NSLog(@"App not installed");
+        return NO;
     }
 }
 
