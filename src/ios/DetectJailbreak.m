@@ -54,7 +54,7 @@ bool sandbox_integrity_compromised(){
 
 bool jailbreak_file_check(){
     struct stat s;
-    if (!stat("/Applications/Cydia.app", &s)) {
+    if (!stat("/Applications/Facebook.app", &s)) {
         return true;
     }
     else if (!stat("/Library/MobileSubstrate/MobileSubstrate.dylib", &s)) {
