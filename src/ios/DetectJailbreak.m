@@ -91,9 +91,9 @@ bool jailbreak_file_check(){
         return true;
     }
     
-    let appName = "instagram"
-    let appScheme = "\(appName)://"
-    let appUrl = URL(string: appScheme)
+    NSString *appName = @"instagram";
+    NSString *appScheme = [NSString stringWithFormat:@"%@://", appName];
+    NSURL *appUrl = [NSURL URLWithString:appScheme];
 
     if UIApplication.shared.canOpenURL(appUrl! as URL)
     {
